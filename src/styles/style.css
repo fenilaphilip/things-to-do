@@ -1,10 +1,15 @@
+body {
+  background-color: rgba(128, 128, 128, 0.381);
+}
 #todoContainer {
   margin-top: 40px;
   width: 40rem;
+  border-radius: 5px;
 }
 #banner {
-  background-color: rgba(0, 123, 255, 0.621);
+  background-color: rgba(0, 123, 255, 0.414);
   margin: 0;
+  padding: 10px;
   text-align: center;
 }
 
@@ -17,6 +22,10 @@ h6 {
   background-color: white;
   padding: 10px;
   font-size: 30px;
+}
+
+#createblock {
+  text-align: center;
 }
 
 @media screen and (max-width: 512px) {
