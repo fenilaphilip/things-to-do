@@ -1,7 +1,33 @@
-body {
-  background-color: rgba(222, 184, 135, 0.392);
+#todoContainer {
+  margin-top: 40px;
+  width: 40rem;
+}
+#banner {
+  background-color: rgba(0, 123, 255, 0.621);
+  margin: 0;
+  text-align: center;
 }
 
-#createBlock {
-  margin: 40px;
+h1 {
+  padding: 10px;
+  font-weight: 900;
+  font-size: 80px;
+}
+h6 {
+  background-color: white;
+  padding: 10px;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 512px) {
+  #todoContainer {
+    margin-top: 20px;
+    width: auto;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h6 {
+    font-size: 18px;
+  }
 }
