@@ -1,8 +1,11 @@
 
-export default function DisplayToDo() {
+export default function DisplayToDo({ taskList }) {
+    const checklist = taskList;
     return (
         <ul id="alltodos">
-            <li>Go to gym</li>
+            {checklist.length != 0 && (checklist.map((task) => {
+                return <li key={task}>{task}</li>
+            }))}
         </ul>
     )
 }
