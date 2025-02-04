@@ -1,6 +1,8 @@
-import { today } from "../script.js";
 
 export default function Banner() {
+    const currentDate = new Date();
+    const today = currentDate.toLocaleDateString();
+    const day = currentDate.getDay();
     return (
         <div id="banner">
             <h1>To-Do-List</h1>
