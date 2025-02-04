@@ -24,10 +24,6 @@ h6 {
   font-size: 30px;
 }
 
-#createblock {
-  text-align: center;
-}
-
 @media screen and (max-width: 512px) {
   #todoContainer {
     margin-top: 20px;
