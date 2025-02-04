@@ -5,12 +5,10 @@ body {
   margin-top: 40px;
   width: 40rem;
   border-radius: 5px;
-}
-#banner {
   background-color: rgba(0, 123, 255, 0.414);
-  margin: 0;
   padding: 10px;
   text-align: center;
+  border: black solid 2px;
 }
 
 h1 {
