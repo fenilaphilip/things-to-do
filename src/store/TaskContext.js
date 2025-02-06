@@ -14,14 +14,28 @@ const initialList = [
 
 ];
 
-const TaskContext = createContext(initialList);
+const TaskContext = createContext({
+    TodoList: initialList,
+    AddnewTask: () => { }
+});
 
 const TaskContextProvider = ({ children }) => {
     const [taskList, setTaskList] = useState(initialList);
 
+    function AddnewTask(input) {
+        let newTask = input;
+        setTaskList((prevList) => {
+            return [...prevList, {
+                task: newTask,
+                id: (prevList.length + 1),
+                checked: false
+            }]
+        });
+    }
+
     const contextValue = {
-        taskList,
-        setTaskList
+        TodoList: taskList,
+        AddnewTask,
     }
 
 

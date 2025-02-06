@@ -11,6 +11,7 @@ export default function App() {
 
   const taskctx = useContext(TaskContext);
 
+
   return (
     <div className="container" id="todoContainer">
       <div id="header">
@@ -19,7 +20,7 @@ export default function App() {
       </div>
       <TaskContextProvider>
         <InputRow />
-        {taskctx.map((data) => {
+        {taskctx.TodoList.map((data) => {
           return <DisplayTodo key={data.id} task={data.task} />
         })}
 
