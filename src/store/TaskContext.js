@@ -1,12 +1,42 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 
-const TaskContext = createContext("Add a task");
+const initialList = [
+    {
+        task: "task 1",
+        id: "1"
+    },
+    {
+        task: "task 2",
+        id: "2"
+    },
+    {
+        task: "task 3",
+        id: "3"
+    },
+    {
+        task: "task 4",
+        id: "4"
+    },
+    {
+        task: "task 5",
+        id: "5"
+    }
+
+];
+
+const TaskContext = createContext(initialList);
 
 const TaskContextProvider = ({ children }) => {
-    const Tasklist = ["Task1", "Task2", "Task3", "Task4", "Task5"];
+    const [tasklist, setTaskList] = useState("");
+
+    const contextValue = {
+        tasklist,
+        setTaskList
+    }
+
 
     return (
-        <TaskContext.Provider value={Tasklist}>
+        <TaskContext.Provider value={contextValue}>
             {children}
         </TaskContext.Provider>
     )

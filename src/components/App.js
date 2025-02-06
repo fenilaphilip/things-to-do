@@ -16,13 +16,10 @@ export default function App() {
       <h1>To-Do-List</h1>
       <h6 className="m-3">Today: {today}</h6>
       <TaskContextProvider>
-        <InputRow />
-        <InputRow />
-        <InputRow />
-        <InputRow />
-        <InputRow />
-        <InputRow />
-        <InputRow />
+        {taskctx.map((data) => {
+          return <InputRow key={data.id} />
+        })}
+
       </TaskContextProvider>
     </div >
   );
