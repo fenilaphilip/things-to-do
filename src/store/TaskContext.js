@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 
+const currentDate = new Date().toLocaleDateString();
+
 const initialList = [
     {
         task: "task 1",
@@ -15,6 +17,7 @@ const initialList = [
 ];
 
 const TaskContext = createContext({
+    today: currentDate,
     TodoList: initialList,
     AddnewTask: () => { }
 });
@@ -34,6 +37,7 @@ const TaskContextProvider = ({ children }) => {
     }
 
     const contextValue = {
+        today: currentDate,
         TodoList: taskList,
         AddnewTask,
     }
