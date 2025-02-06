@@ -3,34 +3,24 @@ import { createContext, useState } from 'react';
 const initialList = [
     {
         task: "task 1",
-        id: "1"
+        id: "1",
+        checked: false
     },
     {
         task: "task 2",
-        id: "2"
+        id: "2",
+        checked: false
     },
-    {
-        task: "task 3",
-        id: "3"
-    },
-    {
-        task: "task 4",
-        id: "4"
-    },
-    {
-        task: "task 5",
-        id: "5"
-    }
 
 ];
 
 const TaskContext = createContext(initialList);
 
 const TaskContextProvider = ({ children }) => {
-    const [tasklist, setTaskList] = useState("");
+    const [taskList, setTaskList] = useState(initialList);
 
     const contextValue = {
-        tasklist,
+        taskList,
         setTaskList
     }
 
