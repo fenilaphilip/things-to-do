@@ -12,7 +12,7 @@ export const initialState = [
     },
 ];
 
-function TodoReducer(state, action) {
+export function TodoReducer(state, action) {
     const { todo } = action.payload;
     switch (action.type) {
         case 'ADD_NEW_TASK': {
