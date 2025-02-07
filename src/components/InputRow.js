@@ -13,7 +13,6 @@ export default function InputRow() {
     }
 
     function windowEnter(e) {
-        console.log("enter key got pressed");
         taskCtx.AddnewTask(newTask);
         setNewTask("");
     }

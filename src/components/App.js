@@ -6,23 +6,19 @@ import "../styles/style.css";
 
 
 export default function App() {
-
   const taskctx = useContext(TaskContext);
 
 
   return (
-    <div className="container" id="todoContainer">
-      <div id="header">
-        <h1>To-Do-List</h1>
-        <h6 className="m-3">Today: {taskctx.today}</h6>
-      </div>
-      <TaskContextProvider>
+    <TaskContextProvider>
+      <div className="container" id="todoContainer">
+        <div id="header">
+          <h1>To-Do-List</h1>
+          <h6 className="m-3">Today: {taskctx.today}</h6>
+        </div>
         <InputRow />
-        {taskctx.TodoList.map((data) => {
-          return <DisplayTodo key={data.id} task={data.task} />
-        })}
-
-      </TaskContextProvider>
-    </div >
+        <DisplayTodo todoList={taskctx.TodoList} />
+      </div >
+    </TaskContextProvider>
   );
 }
