@@ -1,10 +1,8 @@
-import { useContext, useState } from "react";
-import { TaskContext } from "../store/TaskContext";
+import { useState } from "react";
 import useKey from "@rooks/use-key";
 
-export default function InputRow() {
+export default function InputRow({ addTodo }) {
     const [newTask, setNewTask] = useState("");
-    const taskCtx = useContext(TaskContext);
     useKey(["Enter"], windowEnter);
 
     function handleInputChange(event) {
@@ -13,7 +11,13 @@ export default function InputRow() {
     }
 
     function windowEnter(e) {
-        taskCtx.AddnewTask(newTask);
+        addTodo({
+            type: "ADD_NEW_TASK",
+            payload: {
+                task: newTask
+            }
+
+        });
         setNewTask("");
     }
 

@@ -16,7 +16,7 @@ export default function App() {
           <h1>To-Do-List</h1>
           <h6 className="m-3">Today: {taskctx.today}</h6>
         </div>
-        <InputRow />
+        <InputRow addTodo={taskctx.addTodo} />
         <DisplayTodo todoList={taskctx.TodoList} />
       </div >
     </TaskContextProvider>

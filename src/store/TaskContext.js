@@ -1,45 +1,30 @@
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
+import { initialState, TodoReducer } from './TaskReducer';
+
 
 const currentDate = new Date().toLocaleDateString();
 
-const initialList = [
-    {
-        task: "task 1",
-        id: "1",
-        checked: false
-    },
-    {
-        task: "task 2",
-        id: "2",
-        checked: false
-    },
-
-];
-
 const TaskContext = createContext({
     today: currentDate,
-    TodoList: initialList,
-    AddnewTask: () => { }
+    TodoList: initialState,
+    addTodo: () => { }
 });
 
 const TaskContextProvider = ({ children }) => {
-    const [taskList, setTaskList] = useState(initialList);
+    const [state, dispatch] = useReducer(TodoReducer, initialState);
 
-    function AddnewTask(input) {
-        let newTask = input;
-        setTaskList((prevList) => {
-            return [...prevList, {
-                task: newTask,
-                id: (prevList.length + 1),
-                checked: false
-            }]
+    const addTodo = (payload) => {
+        return dispatch({
+            type: "ADD_NEW_TASK",
+            payload
         });
     }
 
+
     const contextValue = {
         today: currentDate,
-        TodoList: taskList,
-        AddnewTask,
+        TodoList: state,
+        addTodo
     }
 
 
