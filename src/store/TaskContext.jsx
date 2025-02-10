@@ -6,11 +6,8 @@ const currentDate = new Date().toLocaleDateString();
 
 const initialState = {
     date: currentDate,
-    todos: [{
-        task: "Task 1",
-        id: 1,
-        isChecked: false
-    }],
+    todos: [],
+    unfinishedTaskCount: 0,
 };
 
 const TaskContext = createContext();
@@ -21,6 +18,7 @@ const TaskContextProvider = ({ children }) => {
     const contextValue = {
         today: state.date,
         todoList: state.todos,
+        count: state.unfinishedTaskCount,
         dispatch
     }
     return (
