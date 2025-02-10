@@ -9,7 +9,7 @@ export default function DisplayTodo({ todoList = [] }) {
             </div>
             {todoList.map((item) => {
                 return (
-                    <div className="d-flex m-2" id={item.id}>
+                    <div className="d-flex m-2" key={item.id}>
                         <input type="checkbox" className="m-2" id="checkbox" />
                         <div className="m-2" id="todo">{item.task}</div>
                         <button className="m-2">
