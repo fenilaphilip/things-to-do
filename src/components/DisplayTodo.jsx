@@ -1,6 +1,9 @@
+import { useContext } from 'react';
+import { TaskContext } from '../store/TaskContext';
 
-
-export default function DisplayTodo({ todoList = [] }) {
+export default function DisplayTodo() {
+    const { todoList } = useContext(TaskContext);
+    console.log(todoList);
 
     return (
         <>

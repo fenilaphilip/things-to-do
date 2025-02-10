@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { TaskContext } from '../store/TaskContext';
 import useKey from "@rooks/use-key";
+import uniqid from 'uniqid';
 
 export default function InputRow({ addTodo }) {
     const [newTask, setNewTask] = useState("");
+    const { dispatch } = useContext(TaskContext);
     useKey(["Enter"], windowEnter);
 
     function handleInputChange(event) {
@@ -11,12 +14,15 @@ export default function InputRow({ addTodo }) {
     }
 
     function windowEnter(e) {
-        addTodo({
-            type: "ADD_NEW_TASK",
-            payload: {
-                task: newTask
-            }
+        let newTodo = {
+            id: uniqid(),
+            task: newTask,
+            isChecked: false
+        }
 
+        dispatch({
+            type: "ADD_NEW_TASK",
+            payload: newTodo
         });
         setNewTask("");
     }
