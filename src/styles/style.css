@@ -42,15 +42,20 @@ h6 {
   height: 20px;
 }
 
-@media screen and (max-width: 512px) {
-  #todoContainer {
-    margin-top: 20px;
-    width: auto;
-  }
+@media screen and (max-width: 480px) {
   h1 {
     font-size: 40px;
   }
   h6 {
     font-size: 18px;
+  }
+  #taskInput {
+    max-width: 200px;
+  }
+}
+@media screen and (max-width: 512px) {
+  #todoContainer {
+    margin: 20px;
+    width: auto;
   }
 }
