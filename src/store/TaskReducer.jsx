@@ -4,25 +4,42 @@ export default function TodoReducer(state, action) {
 
     switch (action.type) {
         case 'ADD_NEW_TASK': {
-            let newTodo = [...state.todos, action.payload];
+            let newTodos = [...state.todos, action.payload];
             return {
                 ...state,
-                todos: newTodo
+                todos: newTodos
             };
         }
         case 'CHECKED_TASK': {
+            let taskId = action.payload.id;
+            let newTodos = state.todos.map((todo) => {
+                if (todo.id == taskId) {
+                    todo.checked = true;
+                }
+                return todo;
+            });
 
-            return state;
+            return {
+                ...state,
+                todos: newTodos
+            };
 
         }
         case 'UNCHECKED_TASK': {
+            let taskId = action.payload.id;
+            let newTodos = state.todos.map((todo) => {
+                if (todo.id == taskId) {
+                    todo.checked = false
+                }
+                return todo;
+            });
 
-            return state;
+            return {
+                ...state,
+                todos: newTodos
+            };
         }
-        case 'Edit_TASK': {
-            return state;
 
-        }
         case 'DELETE_TASK': {
             return state;
 
