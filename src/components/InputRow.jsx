@@ -14,12 +14,12 @@ export default function InputRow({ addTodo }) {
     }
 
     function windowEnter(e) {
-        let todo = newTask.trim();
-        todo = todo.charAt(0).toUpperCase() + todo.slice(1);
+        let task = newTask.trim();
+        task = task.charAt(0).toUpperCase() + task.slice(1);
 
         let newTodo = {
             id: uniqid(),
-            task: todo,
+            task: task,
             isChecked: false
         }
 
@@ -37,7 +37,6 @@ export default function InputRow({ addTodo }) {
                 id="taskInput"
                 value={newTask}
                 onChange={handleInputChange}
-                required
             />
         </div>
     )
