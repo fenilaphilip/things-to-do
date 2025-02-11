@@ -14,7 +14,7 @@ export default function TodoReducer(state, action) {
             let taskId = action.payload.id;
             let newTodos = state.todos.map((todo) => {
                 if (todo.id == taskId) {
-                    todo.checked = true;
+                    todo.isChecked = true;
                 }
                 return todo;
             });
@@ -29,7 +29,7 @@ export default function TodoReducer(state, action) {
             let taskId = action.payload.id;
             let newTodos = state.todos.map((todo) => {
                 if (todo.id == taskId) {
-                    todo.checked = false
+                    todo.isChecked = false
                 }
                 return todo;
             });
