@@ -16,6 +16,7 @@ export default function DisplayTodo() {
                             key={item.id}
                             id={item.id}
                             task={item.task}
+                            isChecked={item.isChecked}
                             dispatch={dispatch}
                         />
                     })

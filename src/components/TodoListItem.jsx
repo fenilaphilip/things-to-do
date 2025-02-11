@@ -1,24 +1,20 @@
-import { useState } from "react";
 
-export default function TodoListItem({ id, task, dispatch }) {
-    const [isChecked, setIsChecked] = useState(false);
+export default function TodoListItem({ id, task, isChecked, dispatch }) {
 
     const handleCheckboxChange = (event) => {
-        console.debug(`ischecked : ${isChecked}`)
+        isChecked = !isChecked;
+        console.log(isChecked)
         if (isChecked) {
-            console.debug(`dispatching type unchecked`);
-            dispatch({
-                type: 'UNCHECKED_TASK',
-                payload: { id: event.target.value }
-            });
-        } else {
-            console.debug(`dispatching type checked`);
             dispatch({
                 type: 'CHECKED_TASK',
                 payload: { id: event.target.value }
             });
+        } else {
+            dispatch({
+                type: 'UNCHECKED_TASK',
+                payload: { id: event.target.value }
+            });
         }
-        setIsChecked(!isChecked);
     }
     return (
         <div className="d-flex m-2">

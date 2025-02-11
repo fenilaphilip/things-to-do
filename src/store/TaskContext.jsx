@@ -1,11 +1,8 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 import TodoReducer from './TaskReducer';
 
 
-const currentDate = new Date().toLocaleDateString();
-
-const initialState = {
-    date: currentDate,
+var initialState = JSON.parse(localStorage.getItem('storetodos')) || {
     todos: [],
     unfinishedTaskCount: 0,
 };
@@ -15,8 +12,12 @@ const TaskContext = createContext();
 const TaskContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(TodoReducer, initialState);
 
+    useEffect(() => {
+        localStorage.setItem('storetodos', JSON.stringify(state));
+    }, [state]);
+
+
     const contextValue = {
-        today: state.date,
         todoList: state.todos,
         count: state.unfinishedTaskCount,
         dispatch
