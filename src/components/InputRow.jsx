@@ -32,7 +32,9 @@ export default function InputRow({ addTodo }) {
 
     return (
         <div className="m-2" >
-            <input type="text"
+            <input
+                data-test="input-task"
+                type="text"
                 placeholder="Add a task"
                 id="taskInput"
                 value={newTask}
