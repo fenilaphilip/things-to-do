@@ -4,7 +4,7 @@ export default function TodoReducer(state, action) {
 
     switch (action.type) {
         case 'ADD_NEW_TASK': {
-            let newTodos = [...state.todos, action.payload];
+            let newTodos = [action.payload, ...state.todos];
             return {
                 ...state,
                 todos: newTodos
