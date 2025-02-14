@@ -1,7 +1,7 @@
 {
   "name": "todo-list",
   "version": "1.0.0",
-  "description": "Todo list React example",
+  "description": "Todo list React",
   "keywords": [
     "react",
     "todo"
@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "cy:open": "cypress open"
+      "cy:open": "cypress open"
   },
   "browserslist": [
     ">0.2%",
