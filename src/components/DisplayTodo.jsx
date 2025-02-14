@@ -6,9 +6,14 @@ import TodoListItem from './TodoListItem';
 export default function DisplayTodo() {
     const { todoList, dispatch } = useContext(TaskContext);
 
+    const totalTodos = todoList.length;
+    const completedTodos = todoList.filter((todo) => todo.isChecked);
+    const undoneTaskCount = totalTodos - completedTodos.length;
+
+
     return (
         <>
-            <Info />
+            <Info undoneCount={undoneTaskCount} totalTodos={totalTodos} />
             {
                 todoList.length !== 0 && (
                     todoList.map((item) => {

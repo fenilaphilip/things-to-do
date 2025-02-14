@@ -13,7 +13,6 @@ export default function App() {
       <div className="container" id="todoContainer">
         <Header />
         <InputRow />
-
         <DisplayTodo />
       </div >
     </TaskContextProvider >

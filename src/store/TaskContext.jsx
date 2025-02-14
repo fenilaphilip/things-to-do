@@ -3,8 +3,7 @@ import TodoReducer from './TaskReducer';
 
 
 var initialState = JSON.parse(localStorage.getItem('storetodos')) || {
-    todos: [],
-    unfinishedTaskCount: 0,
+    todos: []
 };
 
 const TaskContext = createContext();
@@ -19,7 +18,6 @@ const TaskContextProvider = ({ children }) => {
 
     const contextValue = {
         todoList: state.todos,
-        count: state.unfinishedTaskCount,
         dispatch
     }
     return (
