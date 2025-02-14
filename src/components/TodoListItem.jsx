@@ -5,7 +5,6 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
 
     const handleCheckboxChange = (event) => {
         isChecked = !isChecked;
-        console.debug(`task completed : ${isChecked}`)
         if (isChecked) {
             dispatch({
                 type: 'CHECKED_TASK',
@@ -21,12 +20,12 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
 
 
     const handleRemove = (id) => {
-        console.debug(`delete id :${id}`)
         dispatch({
             type: 'REMOVE_TASK',
             payload: { id: id }
         });
     }
+
     return (
         <div className="d-flex m-2" data-test="display-todo" >
             <input
