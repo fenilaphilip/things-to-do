@@ -41,6 +41,10 @@ h6 {
   width: 20px;
   height: 20px;
 }
+#todo {
+  width: auto;
+  text-align: left;
+}
 
 @media screen and (max-width: 480px) {
   h1 {

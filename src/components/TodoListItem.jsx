@@ -1,10 +1,11 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function TodoListItem({ id, task, isChecked, dispatch }) {
+    const strikeFinishedTaskCSS = { textDecoration: isChecked ? "line-through" : "none" };
 
     const handleCheckboxChange = (event) => {
         isChecked = !isChecked;
-        console.debug(isChecked)
+        console.debug(`task completed : ${isChecked}`)
         if (isChecked) {
             dispatch({
                 type: 'CHECKED_TASK',
@@ -38,6 +39,7 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
                 onChange={handleCheckboxChange}
             />
             <div
+                style={strikeFinishedTaskCSS}
                 className="m-2"
                 id="todo"
                 data-test="task"
