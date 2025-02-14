@@ -12,7 +12,7 @@ export default function TodoReducer(state, action) {
         }
         case 'CHECKED_TASK': {
             let taskId = action.payload.id;
-            let newTodos = state.todos.map((todo) => {
+            let updatedTodos = state.todos.map((todo) => {
                 if (todo.id == taskId) {
                     todo.isChecked = true;
                 }
@@ -21,13 +21,13 @@ export default function TodoReducer(state, action) {
 
             return {
                 ...state,
-                todos: newTodos
+                todos: updatedTodos
             };
 
         }
         case 'UNCHECKED_TASK': {
             let taskId = action.payload.id;
-            let newTodos = state.todos.map((todo) => {
+            let updatedTodos = state.todos.map((todo) => {
                 if (todo.id == taskId) {
                     todo.isChecked = false
                 }
@@ -36,12 +36,22 @@ export default function TodoReducer(state, action) {
 
             return {
                 ...state,
-                todos: newTodos
+                todos: updatedTodos
             };
         }
 
-        case 'DELETE_TASK': {
-            return state;
+        case 'REMOVE_TASK': {
+            let taskId = action.payload.id;
+            let remainingTodos = state.todos.filter((todo) => {
+                if (todo.id !== taskId) {
+                    return todo;
+                }
+
+            });
+            return {
+                ...state,
+                todos: remainingTodos
+            }
 
         }
 
