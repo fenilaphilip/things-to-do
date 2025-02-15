@@ -8,7 +8,7 @@ export default function Info({ undoneCount, totalTodos }) {
                 totalTodos === 0 && (
                     <div>
                         <p> <em>Press 'Enter' to add task!</em> </p>
-                        <p> <em> Double Click on task to edit!</em> </p>
+                        {/* <p> <em> Double Click on task to edit!</em> </p> */}
                     </div>
                 )
 

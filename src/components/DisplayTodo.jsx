@@ -30,11 +30,11 @@ export default function DisplayTodo() {
                     )
                 }
             </div>
-            {
+            {/* {
                 totalTodos !== 0 && (
                     <Settings />
                 )
-            }
+            } */}
 
 
         </>
