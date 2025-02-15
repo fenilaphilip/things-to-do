@@ -27,19 +27,18 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
     }
 
     return (
-        <div className="d-flex m-2" data-test="display-todo" >
+        <div className="d-flex m-2 todo-item px-2" data-test="display-todo" >
             <input
                 data-test="input-checkbox"
                 type="checkbox"
-                className="m-2"
-                id="checkbox"
+                className="todo-checkbox"
                 value={id}
                 checked={isChecked}
                 onChange={handleCheckboxChange}
             />
             <div
                 style={strikeFinishedTaskCSS}
-                className="m-2"
+                className="m-2 todo-item-desc"
                 id="todo"
                 data-test="task"
             >

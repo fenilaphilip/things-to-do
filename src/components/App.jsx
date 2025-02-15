@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <TaskContextProvider>
-      <div className="container" id="todoContainer">
+      <div className="container d-flex flex-column" id="todoContainer">
         <Header />
         <InputRow />
         <DisplayTodo />

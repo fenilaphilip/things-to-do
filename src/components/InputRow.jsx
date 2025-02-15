@@ -31,7 +31,7 @@ export default function InputRow({ addTodo }) {
     }
 
     return (
-        <div className="m-2" >
+        <div className="m-2 px-2" >
             <input
                 data-test="input-task"
                 type="text"

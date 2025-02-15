@@ -6,9 +6,9 @@ export default function Headers() {
     return (
         <div id="header">
             <h1 data-test="TodoList-heading">To-Do-List</h1>
-            <h6 className="m-3">Today:
+            <h5 className="m-2 date">
                 <span data-test="Current-Date">{currentDate}</span>
-            </h6>
+            </h5>
         </div>
     )
 }
