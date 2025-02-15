@@ -2,6 +2,7 @@
   "name": "todo-list",
   "version": "1.0.0",
   "description": "Todo list React",
+  "homepage": "/things-to-do/",
   "keywords": [
     "react",
     "todo"
