@@ -1,4 +1,4 @@
-# Things-todo-> [Today]
+# Things-todo
 
 Todo-list-app is an application that allows to manage a list of tasks to do on a day.
 It performs adding, updating, deleting and toggling state of each task.

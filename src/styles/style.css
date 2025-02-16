@@ -32,6 +32,8 @@ body {
 }
 .todo-item-desc {
   flex-grow: 1;
+  width: auto;
+  text-align: left;
 }
 h1 {
   padding: 10px;
@@ -57,9 +59,10 @@ h1 {
 .todo-items {
   flex-grow: 1;
 }
-#todo {
-  width: auto;
-  text-align: left;
+
+.todo-checkbox:hover,
+.remove-btn:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 480px) {
