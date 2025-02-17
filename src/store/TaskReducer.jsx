@@ -87,6 +87,7 @@ export default function TodoReducer(state, action) {
                 if (todo.isChecked) {
                     todo.isChecked = false;
                 }
+                return todo;
             });
             return {
                 todos: newTodos

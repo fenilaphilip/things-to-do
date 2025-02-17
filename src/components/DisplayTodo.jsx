@@ -5,6 +5,7 @@ import TodoListItem from './TodoListItem';
 
 export default function DisplayTodo() {
     const { todoList, dispatch } = useContext(TaskContext);
+    console.debug(`Todo list is ${JSON.stringify(todoList)}`)
 
     const totalTodos = todoList.length;
     const completedTodos = todoList.filter((todo) => todo.isChecked);
