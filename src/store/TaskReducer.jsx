@@ -1,12 +1,11 @@
 
 export default function TodoReducer(state, action) {
-    console.log(`id :${JSON.stringify(action.payload)}`);
+    // console.log(`id :${JSON.stringify(action.payload)}`);
 
     switch (action.type) {
         case 'ADD_NEW_TASK': {
             let newTodos = [action.payload, ...state.todos];
             return {
-                ...state,
                 todos: newTodos
             };
         }
@@ -20,7 +19,6 @@ export default function TodoReducer(state, action) {
             });
 
             return {
-                ...state,
                 todos: updatedTodos
             };
 
@@ -35,9 +33,25 @@ export default function TodoReducer(state, action) {
             });
 
             return {
-                ...state,
                 todos: updatedTodos
             };
+        }
+
+        case 'EDIT_TASK': {
+            let taskId = action.payload.id;
+            let modifiedtask = action.payload.task;
+            let updatedTodos = state.todos.map((todo) => {
+                if (todo.id == taskId) {
+                    todo.task = modifiedtask;
+                }
+                return todo;
+
+            });
+
+            return {
+                todos: updatedTodos
+            }
+
         }
 
         case 'REMOVE_TASK': {
@@ -49,7 +63,6 @@ export default function TodoReducer(state, action) {
 
             });
             return {
-                ...state,
                 todos: remainingTodos
             }
 

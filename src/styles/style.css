@@ -61,6 +61,7 @@ h1 {
 }
 
 .todo-checkbox:hover,
+.edit-btn:hover,
 .remove-btn:hover {
   cursor: pointer;
 }
