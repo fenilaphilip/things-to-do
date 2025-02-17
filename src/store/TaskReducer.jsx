@@ -67,6 +67,31 @@ export default function TodoReducer(state, action) {
             }
 
         }
+        case 'ALL_CLEAR': {
+            return {
+                todos: []
+            }
+        }
+        case 'REMOVE_DONE_TASK': {
+            let newTodos = state.todos.filter((todo) => {
+                if (!todo.isChecked) {
+                    return todo;
+                }
+            });
+            return {
+                todos: newTodos
+            }
+        }
+        case 'UNCHECK_ALL_TASKS': {
+            let newTodos = state.todos.map((todo) => {
+                if (todo.isChecked) {
+                    todo.isChecked = false;
+                }
+            });
+            return {
+                todos: newTodos
+            }
+        }
 
     }
     throw Error('Unknown action: ' + action.type);

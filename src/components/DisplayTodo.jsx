@@ -1,8 +1,7 @@
-import { useContext } from 'react';
+import { useContext } from 'react'
 import { TaskContext } from '../store/TaskContext';
 import Info from "./Info";
 import TodoListItem from './TodoListItem';
-import Settings from './Settings';
 
 export default function DisplayTodo() {
     const { todoList, dispatch } = useContext(TaskContext);
@@ -15,6 +14,7 @@ export default function DisplayTodo() {
     return (
         <>
             <Info undoneCount={undoneTaskCount} totalTodos={totalTodos} />
+
             <div className='todo-items'>
                 {
                     todoList.length !== 0 && (
@@ -30,11 +30,6 @@ export default function DisplayTodo() {
                     )
                 }
             </div>
-            {/* {
-                totalTodos !== 0 && (
-                    <Settings />
-                )
-            } */}
 
 
         </>

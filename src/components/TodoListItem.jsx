@@ -75,6 +75,7 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
                     editMode.editable ? (
                         <input
                             data-test="edit-taskInput"
+                            className="todo-item-desc"
                             type="text"
                             value={editMode.editValue}
                             onChange={handleEditChange}
