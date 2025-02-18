@@ -10,6 +10,7 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
         editValue: todotask
     });
     const strikeFinishedTaskCSS = { textDecoration: isChecked ? "line-through" : "none" };
+    console.debug(`style : ${JSON.stringify(strikeFinishedTaskCSS)}`)
 
     const handleCheckboxChange = (id) => {
         isChecked = !isChecked;
@@ -59,22 +60,23 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
     return (
         <div className="d-flex m-2 todo-item px-2" data-test="display-todo" >
             <input
-                data-test="input-checkbox"
+                data-test={`input-checkbox-${task.slice(0, 2)}`}
                 type="checkbox"
                 className="todo-checkbox"
                 checked={isChecked}
                 onChange={() => handleCheckboxChange(id)}
             />
             <div
+
                 style={strikeFinishedTaskCSS}
                 className="m-2 todo-item-desc"
-                data-test="task"
+                data-test={`task-${task.slice(0, 2)}`}
 
             >
                 {
                     editMode.editable ? (
                         <input
-                            data-test="edit-taskInput"
+                            data-test={`edit-taskInput-${task.slice(0, 2)}`}
                             className="todo-item-desc"
                             type="text"
                             value={editMode.editValue}
@@ -87,13 +89,13 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
             </div>
             <div
                 className="m-2 edit-btn"
-                data-test="edit-btn"
+                data-test={`edit-btn-${task.slice(0, 2)}`}
                 onClick={handleEdit}>
                 {editMode.editable ? <DoneIcon /> : <ModeEditIcon />}
             </div>
             <div
                 className="m-2 remove-btn"
-                data-test="remove-btn"
+                data-test={`remove-btn-${task.slice(0, 2)}`}
                 onClick={() => handleRemove(id)}>
                 <DeleteIcon />
             </div>
