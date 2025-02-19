@@ -3,7 +3,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 export default function Info({ undoneCount, totalTodos }) {
 
     return (
-        <>
+        <div data-test="info-text">
             {
                 totalTodos === 0 && (
                     <div>
@@ -32,6 +32,6 @@ export default function Info({ undoneCount, totalTodos }) {
                     </div>
                 )
             }
-        </>
+        </div>
     )
 }
