@@ -105,16 +105,12 @@ describe('To-do-List website', () => {
       }
     });
 
-    it('Saving edited task by enter', () => {
+    it.only('Saving edited task by enter', () => {
       cy.getByData(`edit-btn-02`).click();
       cy.getByData(`edit-taskInput-02`).type(' can edit{enter}');
 
-      // checking does new task created or not
-      cy.getByData("display-todo")
-        .should("have.length", 3)
-      // .should('contain', '02 Task can edit');
-
-
+      cy.getByData("display-todo").should("have.length", 3)
+        .should('contain', '02 Task can edit');
     });
 
     it('Allows to remove specific task', () => {

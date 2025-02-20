@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import DoneIcon from '@mui/icons-material/Done';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import useKey from "@rooks/use-key";
 
 export default function TodoListItem({ id, task, isChecked, dispatch }) {
+    const editTask = useRef(null);
     let todotask = task;
     const [editMode, setEditMode] = useState({
         editable: false,
         editValue: todotask
     });
+    useKey(["Enter"], (e) => {
+        if (document.activeElement === editTask.current) {
+            handleEdit();
+        }
+    });
+
     const strikeFinishedTaskCSS = { textDecoration: isChecked ? "line-through" : "none" };
-    console.debug(`style : ${JSON.stringify(strikeFinishedTaskCSS)}`)
+    // console.debug(`style : ${JSON.stringify(strikeFinishedTaskCSS)}`);
 
     const handleCheckboxChange = (id) => {
         isChecked = !isChecked;
@@ -47,9 +55,6 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
         setEditMode((prevValue) => ({ ...prevValue, editable: !editMode.editable }));
     }
 
-
-
-
     const handleRemove = (id) => {
         dispatch({
             type: 'REMOVE_TASK',
@@ -81,6 +86,7 @@ export default function TodoListItem({ id, task, isChecked, dispatch }) {
                             type="text"
                             value={editMode.editValue}
                             onChange={handleEditChange}
+                            ref={editTask}
                         />
                     ) : (
                         <span>{task}</span>
