@@ -12,11 +12,11 @@ describe('To-do-List website', () => {
   };
 
   context('Head section', () => {
-    it('displays heading in head Section', () => {
+    it('Displays heading in head Section', () => {
       cy.getByData("TodoList-heading").should('exist').contains('To-Do-List');
     });
 
-    it('displays date in head Section', () => {
+    it('Displays date in head Section', () => {
       let today = new Date().toLocaleDateString('en-GB');
       cy.getByData("Current-Date").contains(`${today}`);
     });
@@ -30,14 +30,14 @@ describe('To-do-List website', () => {
       }
     });
 
-    it('not possible to create task without a text', () => {
+    it('Not possible to create task without a text', () => {
       cy.getByData("input-task").type(`{enter}`);
       cy.getByData("display-todo").should("have.length", 0);
     });
   });
 
   context('Info area', () => {
-    it('gives info about press Enter', () => {
+    it('Gives info about press Enter', () => {
       cy.getByData("display-todo")
         .should("have.length", 0)
         .then(() => {
@@ -47,7 +47,7 @@ describe('To-do-List website', () => {
         });
     });
 
-    it('gives info about how many tasks to complete', () => {
+    it('Gives info about how many tasks to complete', () => {
       insert_task();
       cy.getByData("input-checkbox-01").check();
       cy.getByData("input-checkbox-03").check();
@@ -62,7 +62,7 @@ describe('To-do-List website', () => {
         .contains(`2 more tasks to finish!`);
     });
 
-    it('gives well done when complete all tasks', () => {
+    it('Gives well done when complete all tasks', () => {
       insert_task();
       cy.getByData("input-checkbox-01").check();
       cy.getByData("input-checkbox-02").check();
@@ -78,7 +78,7 @@ describe('To-do-List website', () => {
 
   context('Display task area', () => {
     beforeEach(insert_task);
-    it('allows tasks individually checked und unchecked, changing styles', () => {
+    it('Allows tasks individually checked und unchecked, changing styles', () => {
       for (let i = 1; i <= 3; i++) {
         cy.getByData(`input-checkbox-0${i}`).check();
         cy.getByData(`task-0${i}`)
@@ -92,7 +92,7 @@ describe('To-do-List website', () => {
       }
     });
 
-    it('allows to edit a task', () => {
+    it('Allows to edit a task', () => {
       for (let i = 1; i <= 3; i++) {
         cy.getByData(`edit-btn-0${i}`).click();
         cy.getByData(`edit-taskInput-0${i}`)
@@ -105,7 +105,19 @@ describe('To-do-List website', () => {
       }
     });
 
-    it('allows to remove specific task', () => {
+    it('Saving edited task by enter', () => {
+      cy.getByData(`edit-btn-02`).click();
+      cy.getByData(`edit-taskInput-02`).type(' can edit{enter}');
+
+      // checking does new task created or not
+      cy.getByData("display-todo")
+        .should("have.length", 3)
+      // .should('contain', '02 Task can edit');
+
+
+    });
+
+    it('Allows to remove specific task', () => {
       cy.getByData(`remove-btn-02`).click();
       cy.getByData("display-todo")
         .should("not.have.text", `02 Task`)
@@ -115,14 +127,14 @@ describe('To-do-List website', () => {
 
   });
 
-  context('Settings buttons', () => {
+  context('Settings buttons - All Clear, Remove done, Uncheck all tasks', () => {
     beforeEach(insert_task);
-    it('AllClear button clears all tasks from display', () => {
+    it('"All Clear" button clears all tasks from display', () => {
       cy.getByData("All-Clear-btn").click();
       cy.getByData("display-todo").should("have.length", 0);
     });
 
-    it('Remove done button clears all finished tasks from display', () => {
+    it('"Remove done" button clears all finished tasks from display', () => {
       cy.getByData("input-checkbox-01").check();
       cy.getByData("input-checkbox-03").check();
 
@@ -133,7 +145,7 @@ describe('To-do-List website', () => {
         .contains('02 Task');
     });
 
-    it('Uncheck all tasks button actually unchecks all tasks', () => {
+    it('"Uncheck all tasks" button actually unchecks all tasks', () => {
       cy.getByData("input-checkbox-01").check();
       cy.getByData("input-checkbox-03").check();
 
