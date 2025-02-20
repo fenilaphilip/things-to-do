@@ -17,16 +17,18 @@ export default function InputRow({ addTodo }) {
         let task = newTask.trim();
         task = task.charAt(0).toUpperCase() + task.slice(1);
 
-        let newTodo = {
-            id: uniqid(),
-            task: task,
-            isChecked: false
-        }
+        if (task.length !== 0) {
+            let newTodo = {
+                id: uniqid(),
+                task: task,
+                isChecked: false
+            }
 
-        dispatch({
-            type: "ADD_NEW_TASK",
-            payload: newTodo
-        });
+            dispatch({
+                type: "ADD_NEW_TASK",
+                payload: newTodo
+            });
+        }
         setNewTask("");
     }
 

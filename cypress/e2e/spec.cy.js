@@ -29,6 +29,11 @@ describe('To-do-List website', () => {
         cy.getByData("display-todo").should("have.length", `${i}`);
       }
     });
+
+    it('not possible to create task without a text', () => {
+      cy.getByData("input-task").type(`{enter}`);
+      cy.getByData("display-todo").should("have.length", 0);
+    });
   });
 
   context('Info area', () => {
@@ -94,9 +99,9 @@ describe('To-do-List website', () => {
           .should('have.value', `0${i} Task`)
           .click()
           .should('have.focus')
-          .type(' can edited');
+          .type(' can edit');
         cy.getByData(`edit-btn-0${i}`).click();
-        cy.getByData("display-todo").contains(`0${i} Task can edited`);
+        cy.getByData("display-todo").contains(`0${i} Task can edit`);
       }
     });
 
