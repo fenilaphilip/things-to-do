@@ -105,7 +105,7 @@ describe('To-do-List website', () => {
       }
     });
 
-    it.only('Saving edited task by enter', () => {
+    it('Saving edited task by enter', () => {
       cy.getByData(`edit-btn-02`).click();
       cy.getByData(`edit-taskInput-02`).type(' can edit{enter}');
 
