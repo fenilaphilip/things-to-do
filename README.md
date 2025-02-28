@@ -48,7 +48,7 @@ For doing end-2-end application testing using cypress.
 4. Select browser `chrome` / `edge`/ `firefox`
 5. Open file `spec.cy.js`
 
-## **For Contributing**
+## **Contribute**
 
 If you'd like to contribute to `Things-todo` project, here are some guidelines:
 
