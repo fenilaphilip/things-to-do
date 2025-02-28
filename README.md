@@ -1,15 +1,15 @@
 # Things-todo
 
-_Todo-list-app is an application that allows to manage a list of tasks to do on a day. It has minimalistic design and basic functionality._
+Todo-list-app is an application that allows to manage a list of tasks to do on a day. It has minimalistic design and basic functionality.
 
 [![Live](https://img.shields.io/badge/-LIVE-blue?&style=flat)](https://fenilaphilip.github.io/things-to-do/)
 
 ## Features
 
-- Create a new item
-- Update a item
-- Read tasklist from local storage
-- Delete a item
+- Create a new task
+- Update a task
+- Read task from local storage
+- Delete a task
 - Displaying today's date
 - Check done task
 - Uncheck task
@@ -21,9 +21,10 @@ _Todo-list-app is an application that allows to manage a list of tasks to do on 
 ![JavaScript](https://img.shields.io/badge/-JavaScript-yellow?logo=JavaScript&logoColor=white&style=flat)
 ![CSS3](https://img.shields.io/badge/-CSS3-blueviolet?logo=CSS3&logoColor=white&style=flat)
 ![HTML5](https://img.shields.io/badge/-HTML5-DC143C?logo=HTML5&logoColor=white&style=flat)
+![Cypress](https://img.shields.io/badge/-Cypress-98FB98?logo=Cypress&logoColor=black&style=flat)
+![Material UI](https://img.shields.io/badge/-MUI-white?logo=MUI&logoColor=blue&style=flat)
 ![ESLINT](https://img.shields.io/badge/-ESLINT-483D8B?logo=ESLINT&logoColor=white&style=flat)
 ![PRETTIER](https://img.shields.io/badge/-PRETTIER-black?logo=PRETTIER&logoColor=yellow&style=flat)
-![Cypress](https://img.shields.io/badge/-Cypress-98FB98?logo=Cypress&logoColor=black&style=flat)
 
 ## Getting started
 
@@ -48,7 +49,7 @@ For doing end-2-end application testing using cypress.
 4. Select browser `chrome` / `edge`/ `firefox`
 5. Open file `spec.cy.js`
 
-## **For Contributing**
+## **Contribute**
 
 If you'd like to contribute to `Things-todo` project, here are some guidelines:
 
