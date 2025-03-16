@@ -22,9 +22,6 @@ Todo-list-app is an application that allows to manage a list of tasks to do on a
 ![CSS3](https://img.shields.io/badge/-CSS3-blueviolet?logo=CSS3&logoColor=white&style=flat)
 ![HTML5](https://img.shields.io/badge/-HTML5-DC143C?logo=HTML5&logoColor=white&style=flat)
 ![Cypress](https://img.shields.io/badge/-Cypress-98FB98?logo=Cypress&logoColor=black&style=flat)
-![Material UI](https://img.shields.io/badge/-MUI-white?logo=MUI&logoColor=blue&style=flat)
-![ESLINT](https://img.shields.io/badge/-ESLINT-483D8B?logo=ESLINT&logoColor=white&style=flat)
-![PRETTIER](https://img.shields.io/badge/-PRETTIER-black?logo=PRETTIER&logoColor=yellow&style=flat)
 
 ## Getting started
 
